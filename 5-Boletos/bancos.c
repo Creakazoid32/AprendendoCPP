@@ -1,8 +1,15 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <string.h>
 #include "bancos.h"
+
+int getBanco(char* dadoBanco);
+void procITAU(char* data, int barra);
+void procBB(char* data, int barra);
+float getValor(char* dadoBanco, int barra);
+int getFatorVencimento(char* dadoBanco, int barra);
+void printVencimento(int fatorVcto);
 
 void versao(void)
 {
@@ -112,6 +119,7 @@ int getFatorVencimento(char* dadoBanco, int barra)
     return fatorVencimento;   
 
 }
+
 void printVencimento(int fatorVcto)
 {
     //Data base do fator de vencimento 07/10/1997
