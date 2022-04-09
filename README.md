@@ -4,6 +4,7 @@
 - [Introdução a Programação](#introdução-a-programação)
   - [Sumário](#sumário)
   - [Ambiente de desenvolvimento](#ambiente-de-desenvolvimento)
+    - [Compilação com o GCC](#compilação-com-o-gcc)
   - [Inicio](#inicio)
   - [Algoritmos: O quê são, onde vivem, como se reproduzem.](#algoritmos-o-quê-são-onde-vivem-como-se-reproduzem)
       - [Exemplos:](#exemplos)
@@ -55,6 +56,109 @@
   - C/C++ Themes
   - C/C++ Compile Run
   - GitLens
+
+### Compilação com o GCC
+
+    Para compilar gerar o executável de um programa feito em um único arquivo;
+
+    Seja o nome do arquivo main.c,
+
+    Digite: gcc main.c -o nome_executavel
+
+    nome_executavel é o nome do arquivo com extenção exe que será gerado
+
+
+
+    Para compilar mais de um arquivo, e montar em um único executável;
+
+    Seja os arquivos main.c, soma.c subtracao.c multiplicacao.c e divisao.c
+
+    Primeiro digite: 
+        gcc -c main.c
+        gcc -c soma.c
+        gcc -c subtracao.c
+        gcc -c multiplicacao.c
+        gcc -c divisao.c
+
+    Esses comandos vai transformar os códigos fontes em linguagem de máquina. Os arquivos com extenção o.
+
+
+    Agora digite o comando: gcc -o calculadora main.o soma.o subtracao.o divisao.o
+
+    Este comando vai montar todos os objetos em um único arquivo chamado calculadora.exe
+
+
+    Trabalhando com bilbiotecas:
+
+```C
+
+/*   Arquivo bancos.h   */
+
+#ifndef __BANCOS__
+#define __BANCOS__
+
+void versao(void);
+
+#endif
+
+/*   Arquivo bancos.c   */
+
+#include <stdio.h>
+#include "bancos.h"
+
+void versao(void)
+{
+    printf("v 0.0.0\n");
+}
+
+/*   Arquivo main.c   */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "bancos.h"
+
+int main()
+{
+    system("CLS");
+
+    versao();
+
+    system("PAUSE");
+    return 0;
+}
+
+/*   PROCESSO DE GERAÇÃO DO EXECUTÁVEL   */
+
+//1 - Compilar o corpo da biblioteca
+
+// gcc -c bancos.c
+
+// Se a biblioteca tiver mais se um arquivo, o comando pode ser escrito assim:
+
+// gcc -c banco1.c banco3.c banco3.c ... bancoN.c
+
+// 2 - Transformar o objeto criado em um arquivo de biblioteca com extensão a
+
+// ar rvs banco.a banco1.o banco3.o banco3.o ... bancoN.o
+
+// 3 - Monta o executável com a biblioteca
+
+// gcc main.c -o boletos bancos.a -> Compila o arquivo main.c jundo com a biblioteca bancos.a e gera o executável boletos.exe
+
+//Dica
+
+// O rvs significa:
+// r - (replace): substituir versões anteriores dos arquivos na biblioteca, caso existam
+// v - (verbose): mostrar na tela as inclusões que estão sendo realizadas
+// s - (symbols): criar uma tabela dos símbolos que estão sendo agregados à biblioteca
+
+// ar t banco.a -> Lista todos os objetos contídos na biblioteca
+// rm bancos.a -> lista todos os symbols da bibloteca
+
+
+
+```
+
 
 [Inicio](#introdução-a-programação)
 ---
@@ -955,6 +1059,30 @@ for(i = 0; i < 100; i++)
     for ( expressão_inicial ; condição ; controle ) statement
 
 ### Funções
+
+    Funções são subprogramas que são executados dentro do seu programa e são usados para realizar tarefas
+    específicas.
+
+    Para fazer o uso de funções, primeiramente devemos declarar esta função;
+
+    tipo_do_retorno nome_da_funcao (tipo_do_parametros nome_do_parametro)
+
+    Depois precisamos definir a função:
+
+    tipo_do_retorno nome_da_funcao (tipo_do_parametros nome_do_parametro)
+    {
+
+    }
+
+    Por fim, poderemos fazer o uso da função com a sua chamada:
+
+    nome_da_funcao();
+
+    Funções são necessárias para deixar o nosso programa mais fácil de entender, e também para fazer reuso
+    de código.
+
+    Vamos ver um exemplo: 
+
 
 ### Tipos de Dados Complexos
 
