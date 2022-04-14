@@ -625,7 +625,7 @@ scanf("%d", &opcao);
 
 if(opcao == 1)
 {
-    prinf("Você escolheu Cadastro!\n");
+    printf("Você escolheu Cadastro!\n");
 }
 else if(opcao == 2)
 {
